@@ -1,0 +1,85 @@
+# Archivos y carpetas del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos y carpetas generadas por Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle-cache/
+
+# Archivos de configuración de Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos de configuración de entorno
+/local.properties
+/.vscode/
+.env
+
+# Archivos de logs y salida
+*.log
+*.out
+*.class
+
+# Carpetas de compilación específicas
+*/build/
+*/out/
+*/release/
+*/generated/
+
+# Archivos relacionados con el empaquetado de APK/Bundle
+*.apk
+*.aab
+
+# Archivos de configuración del control de versiones de Android Studio
+/captures/
+output.json
+
+# Dependencias de NDK o C++
+obj/
+.externalNativeBuild/
+
+# Configuración de archivos de biblioteca
+*.cxx/
+*.cmake/
+*.so
+
+# Archivos de respaldo del editor y temporales
+*.swp
+*~
+*.tmp
+*.bak
+*.orig
+
+# Archivos relacionados con la integración continua
+.ci/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/libraries/
+
+# Cache de IntelliJ IDEA o Android Studio
+.idea/modules.xml
+.idea/vcs.xml
+.idea/httpRequests
+
+# Excluir archivos de configuración de prueba local
+*.test
+
+# Dependencias descargadas de terceros
+node_modules/
+yarn.lock
+npm-debug.log*
+
+# Otros archivos temporales
+*.log
+*.class
+bin/
+gen/
+
+# Archivos relacionados con Git
+*.rej
+*.merge
