@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     android:background="#0D1B2A"
     android:backgroundTint="#0D1B2A"
-    tools:context=".MainActivity">
+    tools:context=".ui.LoginActivity">
 
     <EditText
-        android:id="@+id/etUser"
+        android:id="@+id/etUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -23,10 +23,10 @@
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#415A77"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUser2" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/etUser2"
+        android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -55,10 +55,10 @@
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#415A77"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUser" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
     <EditText
-        android:id="@+id/etPwd2"
+        android:id="@+id/etPwd_conf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -75,26 +75,14 @@
 
     <Button
         android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_width="200dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="104dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#415A77"
         android:text="Crear cuenta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:rippleColor="#F00909" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="92dp"
-        android:backgroundTint="#415A77"
-        android:text="Acceder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/cbTerms"
         app:rippleColor="#F00909" />
 
     <TextView
@@ -112,7 +100,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/cbTerms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
@@ -120,6 +108,6 @@
         android:text="Acepto los términos y condiciones."
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPwd2" />
+        app:layout_constraintTop_toBottomOf="@+id/etPwd_conf" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
-package com.example.proyectopgl
+package com.example.proyectopgl.database
 
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import android.content.Context
 
 // Aquí va la clase SQLiteOpenHelper base, que no está extendida por ningún otro helper
@@ -18,6 +17,20 @@ class SQLiteOpenHelper(context: Context, name: String?, factory: SQLiteDatabase.
             );
         """
         db.execSQL(createUsersTableQuery)
+        val createRecordingsTableQuery = """
+            CREATE TABLE Recordings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            beat TEXT,
+            duration INTEGER NOT NULL,
+            date TEXT NOT NULL,
+            folder TEXT NOT NULL,
+            additionalInfo TEXT,
+            fileSize TEXT NOT NULL,
+            filePath TEXT NOT NULL
+            );
+        """
+        db.execSQL(createRecordingsTableQuery)
 
 
     }

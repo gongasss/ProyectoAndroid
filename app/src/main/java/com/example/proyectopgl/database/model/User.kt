@@ -1,4 +1,4 @@
-package com.example.proyectopgl
+package com.example.proyectopgl.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

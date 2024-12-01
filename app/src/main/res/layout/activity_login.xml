@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     android:background="#0D1B2A"
     android:backgroundTint="#0D1B2A"
-    tools:context=".MainActivity">
+    tools:context=".ui.LoginActivity">
 
     <EditText
-        android:id="@+id/etUser"
+        android:id="@+id/etUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -39,7 +39,7 @@
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#415A77"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUser" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
     <Button
         android:id="@+id/signUpButton"

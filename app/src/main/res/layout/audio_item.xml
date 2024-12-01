@@ -1,0 +1,115 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#0D1B2A"
+    android:padding="16dp">
+
+    <!-- Botón de Play/Pause -->
+    <ImageButton
+        android:id="@+id/playPauseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:contentDescription="@string/play_pause_button"
+        android:src="@drawable/baseline_play_arrow_96_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título del audio -->
+    <TextView
+        android:id="@+id/audioTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Recording 000 - 01-01-2024"
+        android:textColor="@color/md_theme_inverseOnSurface_highContrast"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Información adicional -->
+    <TextView
+        android:id="@+id/beatUsed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="Instrumental/Beat: untitled"
+        android:textColor="@color/md_theme_inverseOnSurface_highContrast"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        app:layout_constraintTop_toBottomOf="@+id/audioTitle" />
+
+    <TextView
+        android:id="@+id/recordDuration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:text="Duration: 89 seconds"
+        android:textColor="@color/md_theme_inverseOnSurface_highContrast"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        app:layout_constraintTop_toBottomOf="@+id/beatUsed" />
+
+    <!-- Contenedor desplegable de detalles adicionales -->
+    <LinearLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="#152642"
+        android:orientation="vertical"
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recordDuration">
+
+        <TextView
+            android:id="@+id/recordingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RecordingDate"
+            android:textColor="@color/md_theme_inverseOnSurface_highContrast"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/parentFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/Folder"
+            android:textColor="@color/md_theme_inverseOnSurface_highContrast"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/additionalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/additionalInfo"
+            android:textColor="@color/md_theme_inverseOnSurface_highContrast"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/moreInfoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:contentDescription="@string/more_info"
+        android:src="@android:drawable/ic_menu_more"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
