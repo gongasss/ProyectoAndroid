@@ -11,4 +11,6 @@
     <string name="recordingParentFolder">"Carpeta: "</string>
     <string name="recordingAdditionalInfo">"Información adicional: "</string>
     <string name="secondsUnit">" segundos"</string>
+    <string name="openRecordingActivity">Abrir actividad de grabaciones</string>
+    <string name="alreadyOpen">La actividad ya está abierta.</string>
 </resources>
