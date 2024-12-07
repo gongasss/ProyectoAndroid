@@ -10,11 +10,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        database = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "app-database"
-        ).build()
+        database = AppDatabase.getInstance(this)
 
     }
 }

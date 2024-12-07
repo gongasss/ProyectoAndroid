@@ -8,6 +8,7 @@ class SQLiteOpenHelper(context: Context, name: String?, factory: SQLiteDatabase.
 
     // Este método es llamado cuando la base de datos se crea por primera vez.
     override fun onCreate(db: SQLiteDatabase) {
+
         val createUsersTableQuery = """
             CREATE TABLE Users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -17,6 +18,12 @@ class SQLiteOpenHelper(context: Context, name: String?, factory: SQLiteDatabase.
             );
         """
         db.execSQL(createUsersTableQuery)
+
+    }
+
+    // Este método es llamado cuando se actualiza la base de datos.
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        // Aquí puedes manejar cambios entre versiones de la base de datos (como eliminar tablas, agregar columnas, etc.)
         val createRecordingsTableQuery = """
             CREATE TABLE Recordings (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -31,13 +38,15 @@ class SQLiteOpenHelper(context: Context, name: String?, factory: SQLiteDatabase.
             );
         """
         db.execSQL(createRecordingsTableQuery)
-
-
-    }
-
-    // Este método es llamado cuando se actualiza la base de datos.
-    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Aquí puedes manejar cambios entre versiones de la base de datos (como eliminar tablas, agregar columnas, etc.)
+        val createBeatsTableQuery = """
+            CREATE TABLE Beats (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            duration INTEGER NOT NULL,
+            filePath TEXT NOT NULL
+            );
+        """
+        db.execSQL(createBeatsTableQuery)
     }
 
     // Si quieres hacer algo más como realizar consultas o cambios, puedes agregar otros métodos aquí.

@@ -1,8 +1,7 @@
 package com.example.proyectopgl.ui
 
 import android.os.Bundle
-import android.widget.TableLayout
-import android.widget.TableRow
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectopgl.R
 import com.example.proyectopgl.database.model.RecordingFile
 import com.example.proyectopgl.ui.adapter.AudioAdapter
-import com.example.proyectopgl.ui.view.AudioItemView
 
 class RecordingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +33,7 @@ class RecordingsActivity : AppCompatActivity() {
                 folder = "",
                 additionalInfo = "1poco raro pero ta bien",
                 fileSize = "1.0 MB",
-                filePath = "C:/Users/pgona/Desktop/Recordings/Recording 0001 - 01-01-2024.mp3"
+                filePath = ""
             ),
             RecordingFile(
                 id = 2,
@@ -46,7 +44,7 @@ class RecordingsActivity : AppCompatActivity() {
                 folder = "",
                 additionalInfo = "1poco raro pero ta bien",
                 fileSize = "1.0 MB",
-                filePath = "C:/Users/pgona/Desktop/Recordings/Recording 0002 - 01-01-2024.mp3"
+                filePath = ""
             ),
             RecordingFile(
                 id = 3,
@@ -57,7 +55,7 @@ class RecordingsActivity : AppCompatActivity() {
                 folder = "",
                 additionalInfo = "1poco raro pero ta bien",
                 fileSize = "1.0 MB",
-                filePath = "C:/Users/pgona/Desktop/Recordings/Recording 0003 - 01-01-2024.mp3"
+                filePath = ""
             ),
             RecordingFile(
                 id = 4,
@@ -68,7 +66,7 @@ class RecordingsActivity : AppCompatActivity() {
                 folder = "",
                 additionalInfo = "1poco raro pero ta bien",
                 fileSize = "1.0 MB",
-                filePath = "C:/Users/pgona/Desktop/Recordings/Recording 0004 - 01-01-2024.mp3"
+                filePath = ""
             ),
             RecordingFile(
                 id = 5,
@@ -79,16 +77,43 @@ class RecordingsActivity : AppCompatActivity() {
                 folder = "",
                 additionalInfo = "1poco raro pero ta bien",
                 fileSize = "1.0 MB",
-                filePath = "C:/Users/pgona/Desktop/Recordings/Recording 0005 - 01-01-2024.mp3"
+                filePath = ""
                 ),
             )
+
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.recordingList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(false)
         recyclerView.adapter = AudioAdapter(recordings)
 
+        val playPauseButton = findViewById<ImageButton>(R.id.playPauseButton)
+        playPauseButton.setOnClickListener {
+            alternatePlayPauseButton()
+        }
 
 
+
+
+    }
+    fun alternatePlayPauseButton() {
+        val playPauseButton = findViewById<ImageButton>(R.id.playPauseButton)
+        if (playPauseButton.contentDescription == "Reproducir") {
+            playPauseButton.setImageDrawable(getDrawable(R.drawable.baseline_pause_96))
+            playPauseButton.contentDescription = "Pausar"
+            // TODO: Implement play functionality
+
+        } else {
+            playPauseButton.setImageDrawable(getDrawable(R.drawable.baseline_play_arrow_96))
+            playPauseButton.contentDescription = "Reproducir"
+            // TODO: Implement pause functionality
+
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        alternatePlayPauseButton()
     }
 }

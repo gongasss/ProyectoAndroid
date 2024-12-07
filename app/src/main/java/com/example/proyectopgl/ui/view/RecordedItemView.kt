@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import com.example.proyectopgl.R
 
-class AudioItemView @JvmOverloads constructor(
+class RecordedItemView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -30,7 +30,7 @@ class AudioItemView @JvmOverloads constructor(
 
     init {
         // Inflar el diseño del componente
-        LayoutInflater.from(context).inflate(R.layout.audio_item, this, true)
+        LayoutInflater.from(context).inflate(R.layout.recorded_item, this, true)
 
         // Vincular los elementos del diseño
         recordingTitle = findViewById(R.id.audioTitle)
@@ -48,7 +48,9 @@ class AudioItemView @JvmOverloads constructor(
 
         // Configurar el listener para alternar expansión
         moreInfoButton.setOnClickListener {
-            toggleDetails()
+            this.post{
+                toggleDetails()
+            }
         }
     }
 
@@ -63,28 +65,31 @@ class AudioItemView @JvmOverloads constructor(
     }
 
     fun expandDetails() {
-        // Medir la altura deseada del contenedor
-        detailsContainer.measure(
-            MeasureSpec.makeMeasureSpec(detailsContainer.width, MeasureSpec.EXACTLY),
-            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-        )
-        val targetHeight = detailsContainer.measuredHeight
+        this.post {
+            // Medir la altura deseada del contenedor
+            detailsContainer.measure(
+                MeasureSpec.makeMeasureSpec(detailsContainer.width, MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+            )
+            val targetHeight = detailsContainer.measuredHeight
 
-        // Configurar la altura inicial en 0 para comenzar la animación
-        detailsContainer.layoutParams.height = 0
-        detailsContainer.visibility = View.VISIBLE
+            // Configurar la altura inicial en 0 para comenzar la animación
+            detailsContainer.layoutParams.height = 0
+            detailsContainer.visibility = View.VISIBLE
 
-        // Crear la animación
-        val animator = ValueAnimator.ofInt(0, targetHeight)
-        animator.addUpdateListener { valueAnimator ->
-            val value = valueAnimator.animatedValue as Int
-            detailsContainer.layoutParams.height = value
-            detailsContainer.requestLayout()
+            // Crear la animación
+            val animator = ValueAnimator.ofInt(0, targetHeight)
+            animator.addUpdateListener { valueAnimator ->
+                val value = valueAnimator.animatedValue as Int
+                detailsContainer.layoutParams.height = value
+                detailsContainer.requestLayout()
+            }
+
+            animator.duration = 300
+            animator.start()
         }
-
-        animator.duration = 300
-        animator.start()
     }
+
 
 
     fun collapseDetails() {
@@ -106,7 +111,6 @@ class AudioItemView @JvmOverloads constructor(
             detailsContainer.visibility = View.GONE
         }
     }
-
 
     // Métodos públicos para actualizar los datos
     fun setAudioTitle(title: String) {

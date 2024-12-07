@@ -11,6 +11,9 @@
     <string name="recordingParentFolder">"Carpeta: "</string>
     <string name="recordingAdditionalInfo">"Información adicional: "</string>
     <string name="secondsUnit">" segundos"</string>
-    <string name="openRecordingActivity">Abrir actividad de grabaciones</string>
+    <string name="openRecordingActivity">Ir a grabadora</string>
+    <string name="openRecordingLibraryActivity">Ir a registro de grabaciones</string>
     <string name="alreadyOpen">La actividad ya está abierta.</string>
+    <string name="audio_control_button">Grabar / Parar grabación</string>
+    <string name="addNewBeatLabel">Importar instrumental</string>
 </resources>

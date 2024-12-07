@@ -14,6 +14,7 @@ import com.example.proyectopgl.App
 import com.example.proyectopgl.R
 import com.example.proyectopgl.database.UserRepository
 import com.example.proyectopgl.database.utils.PasswordUtils
+import com.example.proyectopgl.session.UserSession
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
@@ -49,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
                 val user = userRepository.getUserByUsername(etUsername.text.toString())
                 if(user != null && PasswordUtils.verifyPassword(etPwd.text.toString(), user.password)){
                     Toast.makeText(this@LoginActivity, "Bienvenido ${user.username}", Toast.LENGTH_SHORT).show()
+                    UserSession.UserSession.currentUser = user
                     startActivity(Intent(this@LoginActivity, RecordingsActivity::class.java))
                 }else{
                     etPwd.error = "La contraseña es incorrecta"

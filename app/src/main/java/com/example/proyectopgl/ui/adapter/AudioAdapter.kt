@@ -1,31 +1,28 @@
 package com.example.proyectopgl.ui.adapter
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectopgl.R
 import com.example.proyectopgl.database.model.RecordingFile
-import com.example.proyectopgl.ui.view.AudioItemView
+import com.example.proyectopgl.ui.view.RecordedItemView
 
 class AudioAdapter(private val items: List<RecordingFile>) : RecyclerView.Adapter<AudioAdapter.AudioViewHolder>() {
 
     // ViewHolder que contiene una referencia a AudioItemView
-    inner class AudioViewHolder(itemView: AudioItemView) : RecyclerView.ViewHolder(itemView) {
-        val audioItemView: AudioItemView = itemView
+    inner class AudioViewHolder(itemView: RecordedItemView) : RecyclerView.ViewHolder(itemView) {
+        val recordedItemView: RecordedItemView = itemView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AudioViewHolder {
         // Crear una nueva instancia de AudioItemView
-        val audioItemView = AudioItemView(parent.context)
-        return AudioViewHolder(audioItemView)
+        val recordedItemView = RecordedItemView(parent.context)
+        return AudioViewHolder(recordedItemView)
     }
 
     override fun onBindViewHolder(holder: AudioViewHolder, position: Int) {
         val item = items[position]
-        val audioView = holder.audioItemView // Aquí accedes al AudioItemView directamente
+        val audioView = holder.recordedItemView // Aquí accedes al AudioItemView directamente
 
         // Configurar los datos en la vista
         audioView.setAudioTitle(item.title)

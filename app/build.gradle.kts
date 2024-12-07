@@ -61,4 +61,6 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
+    implementation("com.alphacephei:vosk-android:0.3.32+")
+    implementation ("com.github.squti:Android-Wave-Recorder:2.0.1")
 }

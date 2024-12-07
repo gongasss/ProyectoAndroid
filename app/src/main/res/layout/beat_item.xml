@@ -1,0 +1,75 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#212121"
+    android:padding="16dp">
+
+    <!-- Botón de Play/Pause -->
+    <ImageButton
+        android:id="@+id/playPauseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:contentDescription="@string/play_pause_button"
+        android:src="@drawable/baseline_play_arrow_96_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título del audio -->
+    <TextView
+        android:id="@+id/beatTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="didntknow_148_g#min.wav"
+        android:textColor="#D9D9D9"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Información adicional -->
+
+    <!-- Contenedor desplegable de detalles adicionales -->
+
+    <TextView
+        android:id="@+id/beatDuration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="@string/recordingLength"
+        android:textColor="#D9D9D9"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <TextView
+        android:id="@+id/beatFolder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/Folder"
+        android:textColor="#D9D9D9"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        app:layout_constraintTop_toBottomOf="@+id/beatDuration" />
+
+    <ImageButton
+        android:id="@+id/deletebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/baseline_delete_outline_36"
+        app:tint="#D9D9D9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
