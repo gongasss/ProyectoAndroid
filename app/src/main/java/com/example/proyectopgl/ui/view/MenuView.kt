@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import com.example.proyectopgl.R
 import com.example.proyectopgl.ui.BeatLibraryActivity
+import com.example.proyectopgl.ui.NotesActivity
 import com.example.proyectopgl.ui.RecorderActivity
 import com.example.proyectopgl.ui.RecordingsActivity
 class MenuView(context: Context, attrs: AttributeSet?) :
@@ -74,6 +75,14 @@ class MenuView(context: Context, attrs: AttributeSet?) :
         }
         openSongLibrary.setOnClickListener {
             // Lógica aquí
+            val targetActivity = NotesActivity::class.java.simpleName
+            Log.d("Activities", "Target: $targetActivity"+" Current: $currentActivity")
+            if (currentActivity == targetActivity) {
+                Toast.makeText(context, context.getString(R.string.alreadyOpen), Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(context, NotesActivity::class.java)
+                context.startActivity(intent)
+            }
         }
     }
 }

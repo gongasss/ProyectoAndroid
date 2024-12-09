@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#212121"
+    android:background="@color/md_theme_onBackground"
     android:padding="16dp">
 
     <!-- Botón de Play/Pause -->
@@ -15,6 +15,7 @@
         android:background="@null"
         android:contentDescription="@string/play_pause_button"
         android:src="@drawable/baseline_play_arrow_96_light"
+        app:tint="@color/md_theme_secondaryFixed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,13 +63,13 @@
     <!-- Contenedor desplegable de detalles adicionales -->
     <LinearLayout
         android:id="@+id/detailsContainer"
-        android:visibility="invisible"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:background="#121212"
         android:orientation="vertical"
         android:padding="12dp"
+        android:visibility="invisible"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -109,6 +110,7 @@
         android:background="@null"
         android:contentDescription="@string/more_info"
         android:src="@android:drawable/ic_menu_more"
+        android:tint="@color/md_theme_secondaryFixed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -6,7 +6,7 @@ plugins {
 }
 android {
     namespace = "com.example.proyectopgl"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.proyectopgl"
@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.play.services.base)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.media3.exoplayer)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

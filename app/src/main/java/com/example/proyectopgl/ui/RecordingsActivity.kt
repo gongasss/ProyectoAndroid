@@ -1,16 +1,23 @@
 package com.example.proyectopgl.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectopgl.R
+import com.example.proyectopgl.database.AppDatabase
 import com.example.proyectopgl.database.model.RecordingFile
 import com.example.proyectopgl.ui.adapter.AudioAdapter
+import com.example.proyectopgl.ui.view.ToolbarView
+import kotlinx.coroutines.launch
 
 class RecordingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,97 +30,27 @@ class RecordingsActivity : AppCompatActivity() {
             insets
         }
 
-        val recordings = listOf(
-            RecordingFile(
-                id = 1,
-                title = "Recording 0001 - 01-01-2024",
-                beat = "Beat",
-                length = 19,
-                date = "2023-05-01",
-                folder = "",
-                additionalInfo = "1poco raro pero ta bien",
-                fileSize = "1.0 MB",
-                filePath = ""
-            ),
-            RecordingFile(
-                id = 2,
-                title = "Recording 0002 - 01-01-2024",
-                beat = "Beat",
-                length = 19,
-                date = "2023-05-01",
-                folder = "",
-                additionalInfo = "1poco raro pero ta bien",
-                fileSize = "1.0 MB",
-                filePath = ""
-            ),
-            RecordingFile(
-                id = 3,
-                title = "Recording 0003 - 01-01-2024",
-                beat = "Beat",
-                length = 19,
-                date = "2023-05-01",
-                folder = "",
-                additionalInfo = "1poco raro pero ta bien",
-                fileSize = "1.0 MB",
-                filePath = ""
-            ),
-            RecordingFile(
-                id = 4,
-                title = "Recording 0004 - 01-01-2024",
-                beat = "Beat",
-                length = 19,
-                date = "2023-05-01",
-                folder = "",
-                additionalInfo = "1poco raro pero ta bien",
-                fileSize = "1.0 MB",
-                filePath = ""
-            ),
-            RecordingFile(
-                id = 5,
-                title = "Recording 0005 - 01-01-2024",
-                beat = "Beat",
-                length = 19,
-                date = "2023-05-01",
-                folder = "",
-                additionalInfo = "1poco raro pero ta bien",
-                fileSize = "1.0 MB",
-                filePath = ""
-                ),
-            )
+        val toolbar: Toolbar = findViewById<ToolbarView>(R.id.toolbar)
 
+        val activityTitle: TextView = toolbar.findViewById(R.id.activityTitle)
 
+        activityTitle.text = "Registro de grabaciones"
+
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.title = "Grabadora"
+
+        val database = AppDatabase.getInstance(this)
+        var recordings: List<RecordingFile> = listOf()
 
         val recyclerView = findViewById<RecyclerView>(R.id.recordingList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(false)
-        recyclerView.adapter = AudioAdapter(recordings)
 
-        val playPauseButton = findViewById<ImageButton>(R.id.playPauseButton)
-        playPauseButton.setOnClickListener {
-            alternatePlayPauseButton()
+        lifecycleScope.launch {
+            recordings = database.recordingDao().getAllRecordings()
+            Log.d("RecordingsActivity", "Recordings: $recordings")
+            recyclerView.adapter = AudioAdapter(recordings)
         }
-
-
-
-
-    }
-    fun alternatePlayPauseButton() {
-        val playPauseButton = findViewById<ImageButton>(R.id.playPauseButton)
-        if (playPauseButton.contentDescription == "Reproducir") {
-            playPauseButton.setImageDrawable(getDrawable(R.drawable.baseline_pause_96))
-            playPauseButton.contentDescription = "Pausar"
-            // TODO: Implement play functionality
-
-        } else {
-            playPauseButton.setImageDrawable(getDrawable(R.drawable.baseline_play_arrow_96))
-            playPauseButton.contentDescription = "Reproducir"
-            // TODO: Implement pause functionality
-
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        alternatePlayPauseButton()
     }
 }

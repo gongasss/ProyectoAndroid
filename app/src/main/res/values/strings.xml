@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name" translatable="false">Lyra</string>
     <string name="play_pause_button">Reproducir/Pausar</string>
-    <string name="RecordingDate">Fecha de grabación:</string>
-    <string name="Folder">Carpeta:</string>
-    <string name="additionalInfo">Información adicional:</string>
+    <string name="RecordingDate">Fecha de grabación: %s</string>
+    <string name="Folder">Carpeta: %s</string>
+    <string name="additionalInfo">Información adicional: %s</string>
     <string name="more_info">Ver detalles</string>
-    <string name="recordings_beatUsed">Beat: </string>
-    <string name="recordingLength">"Duración: "</string>
-    <string name="recordingDate">"Fecha de grabación: "</string>
-    <string name="recordingParentFolder">"Carpeta: "</string>
+    <string name="recordings_beatUsed">Beat: %s</string>
+    <string name="recordingLength">"Duración: %s"</string>
+    <string name="recordingDate">"Fecha de grabación: %s"</string>
+    <string name="recordingParentFolder">"Carpeta: %s"</string>
     <string name="recordingAdditionalInfo">"Información adicional: "</string>
     <string name="secondsUnit">" segundos"</string>
     <string name="openRecordingActivity">Ir a grabadora</string>
@@ -16,4 +16,15 @@
     <string name="alreadyOpen">La actividad ya está abierta.</string>
     <string name="audio_control_button">Grabar / Parar grabación</string>
     <string name="addNewBeatLabel">Importar instrumental</string>
+    <string name="infoLabelStartRecording">Pulse el botón para iniciar la grabación</string>
+    <string name="RecordingTitle">Título de la grabación:</string>
+    <string name="save_recording_button">Guardar grabación</string>
+    <string name="discard_recording_button">Borrar grabación</string>
+    <string name="addNewNoteButton">Nueva nota</string>
+    <string name="delete_note">Botón para borrar la nota.</string>
+    <string name="saveNoteButton">Guardar nota</string>
+    <string name="profile_image">Foto de perfil del usuario, permite navegar hasta el perfil de usuario.</string>
+    <string name="username_profile_label">Nombre de usuario: %s</string>
+    <string name="emailProfileLabel">Email: %s</string>
+    <string name="update_password">Actualizar contraseña</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#212121"
+    android:background="@color/md_theme_onBackground"
     android:padding="16dp">
 
     <!-- Botón de Play/Pause -->
@@ -16,6 +16,7 @@
         android:background="@null"
         android:contentDescription="@string/play_pause_button"
         android:src="@drawable/baseline_play_arrow_96_light"
+        app:tint="@color/md_theme_secondaryFixed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,11 +45,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
         android:text="@string/recordingLength"
         android:textColor="#D9D9D9"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/playPauseButton"
-        tools:layout_editor_absoluteY="44dp" />
+        app:layout_constraintTop_toBottomOf="@+id/beatTitle" />
 
     <TextView
         android:id="@+id/beatFolder"
@@ -68,8 +70,8 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:src="@drawable/baseline_delete_outline_36"
-        app:tint="#D9D9D9"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/md_theme_secondaryFixed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

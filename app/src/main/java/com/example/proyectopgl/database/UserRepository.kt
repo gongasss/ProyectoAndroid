@@ -24,6 +24,9 @@ class UserRepository(private val userDao: UserDao) {
     suspend fun getAllUsers(): List<User> {
         return userDao.getAllUsers()
     }
+    suspend fun updateUserPassword(userId: Int, newPassword: String) {
+        userDao.updateUserPassword(userId, newPassword)
+    }
     suspend fun deleteUser(user: User) {
         userDao.delete(user)
     }

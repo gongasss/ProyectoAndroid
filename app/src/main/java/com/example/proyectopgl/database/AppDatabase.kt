@@ -4,19 +4,22 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.proyectopgl.database.dao.BeatDao
+import com.example.proyectopgl.database.dao.NoteDao
 import com.example.proyectopgl.database.dao.RecordingDao
 import com.example.proyectopgl.database.model.User
 import com.example.proyectopgl.database.dao.UserDao
 import com.example.proyectopgl.database.model.BeatFile
+import com.example.proyectopgl.database.model.NoteFile
 import com.example.proyectopgl.database.model.RecordingFile
 
 // se usa para crear la base de datos
 
-@Database(entities = [User::class, RecordingFile::class, BeatFile::class], version = 2)
+@Database(entities = [User::class, RecordingFile::class, BeatFile::class, NoteFile::class], version = 5)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun recordingDao(): RecordingDao
     abstract fun beatDao(): BeatDao
+    abstract fun noteDao(): NoteDao
 
     companion object {
         @Volatile

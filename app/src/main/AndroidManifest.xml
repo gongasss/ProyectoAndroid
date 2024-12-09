@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:name=".App"
@@ -23,6 +26,10 @@
         <activity android:name=".ui.RecorderActivity" android:exported="false" android:theme="@style/AppTheme" />
         <activity android:name=".ui.RecordingsActivity" android:exported="false" android:theme="@style/AppTheme" />
         <activity android:name=".ui.BeatLibraryActivity" android:exported="false" android:theme="@style/AppTheme" />
+        <activity android:name=".ui.NotesActivity" android:exported="false" android:theme="@style/AppTheme" />
+        <activity android:name=".ui.NewNoteActivity" android:exported="false" android:theme="@style/AppTheme" />
+        <activity android:name=".ui.ProfileActivity" android:exported="false" android:theme="@style/AppTheme" />
+        <activity android:name=".ui.UpdatePasswordActivity" android:exported="false" android:theme="@style/AppTheme" />
 
 
         <meta-data

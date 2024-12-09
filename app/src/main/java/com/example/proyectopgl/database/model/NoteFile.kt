@@ -3,13 +3,13 @@ package com.example.proyectopgl.database.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "beat_files")
-data class BeatFile(
+@Entity(tableName = "note_files")
+data class NoteFile(
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
-    val name: String,
-    val duration: Int,
-    val filePath: String,
-    val folder: String
+    val title: String,
+    val noteContent: String,
+    val date: String,
+    val isFavorite: Boolean
 ) {
 
 }

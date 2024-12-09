@@ -1,5 +1,6 @@
 package com.example.proyectopgl.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -17,8 +18,8 @@ interface BeatDao {
     @Query("SELECT * FROM beat_files WHERE name = :name")
     suspend fun getBeatByName(name: String): BeatFile?
 
-    @Query("SELECT * FROM beat_files ORDER BY duration DESC")
-    suspend fun getAllBeats(): List<BeatFile>
+    @Query("SELECT * FROM beat_files ORDER BY id DESC")
+    fun getAllBeats(): List<BeatFile>
 
     @Delete
     suspend fun delete(beat: BeatFile)

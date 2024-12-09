@@ -24,6 +24,9 @@ interface UserDao {
     @Query("SELECT * FROM users ORDER BY username DESC")
     suspend fun getAllUsers(): List<User>
 
+    @Query("UPDATE users SET password = :newPassword WHERE id = :userId")
+    suspend fun updateUserPassword(userId: Int, newPassword: String)
+
     @Delete
     suspend fun delete(user: User)
 }

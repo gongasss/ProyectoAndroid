@@ -52,6 +52,9 @@ class RecordedItemView @JvmOverloads constructor(
                 toggleDetails()
             }
         }
+        playPauseButton.setOnClickListener {
+
+        }
     }
 
     // Método para alternar la visibilidad del contenedor de detalles

@@ -2,6 +2,7 @@ package com.example.proyectopgl.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -12,7 +13,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.proyectopgl.App
 import com.example.proyectopgl.R
+import com.example.proyectopgl.database.AppDatabase
 import com.example.proyectopgl.database.UserRepository
+import com.example.proyectopgl.database.model.User
 import com.example.proyectopgl.database.utils.PasswordUtils
 import com.example.proyectopgl.session.UserSession
 import kotlinx.coroutines.launch
@@ -34,20 +37,35 @@ class LoginActivity : AppCompatActivity() {
         val etPwd = findViewById<EditText>(R.id.etPwd)
 
         signUpButton.setOnClickListener {
-            startActivity(Intent(this, RecordingsActivity::class.java))
+            val database = AppDatabase.getInstance(this)
+            val userDao = database.userDao()
+
+            lifecycleScope.launch {
+                var users: List<User> = listOf()
+                users = userDao.getAllUsers()
+                Log.d("Users", users[0].toString())
+            }
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         loginButton.setOnClickListener {
-            val database = (application as App).database
+            val database = AppDatabase.getInstance(this)
             val userDao = database.userDao()
             val userRepository = UserRepository(userDao)
 
             lifecycleScope.launch {
-                if(!userRepository.userNameExists(etUsername.text.toString())){
-                    etUsername.error = "El nombre de usuario no existe"
+                if(!userRepository.userNameExists(etUsername.text.toString()) && !userRepository.emailExists(etUsername.text.toString())){
+                    etUsername.error = "El nombre de usuario/email no existe"
                     return@launch
                 }
-                val user = userRepository.getUserByUsername(etUsername.text.toString())
+
+                val user: User?
+                if(etUsername.text.toString().contains("@")){
+                    user = userRepository.getUserByEmail(etUsername.text.toString())
+                }else{
+                    user = userRepository.getUserByUsername(etUsername.text.toString())
+                }
+
                 if(user != null && PasswordUtils.verifyPassword(etPwd.text.toString(), user.password)){
                     Toast.makeText(this@LoginActivity, "Bienvenido ${user.username}", Toast.LENGTH_SHORT).show()
                     UserSession.UserSession.currentUser = user
