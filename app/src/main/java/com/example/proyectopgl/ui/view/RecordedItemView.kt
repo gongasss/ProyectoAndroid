@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import com.example.proyectopgl.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class RecordedItemView @JvmOverloads constructor(
     context: Context,
@@ -121,21 +123,28 @@ class RecordedItemView @JvmOverloads constructor(
     }
 
     fun setBeatUsed(beatName: String) {
-        beatUsed.text = context.getString(R.string.recordings_beatUsed)+beatName
+        beatUsed.text = context.getString(R.string.recordings_beatUsed, beatName)
     }
 
     fun setRecordingLength(recordingLength: String) {
-        recordLength.text = context.getString(R.string.recordingLength)+recordingLength+context.getString(R.string.secondsUnit)
+        val duration = recordingLength.toDouble()
+        val duration2 = duration/1000
+        recordLength.text = context.getString(R.string.recordingLength, duration2)
     }
 
     fun setRecordingDate(date: String) {
-        recordingDate.text = context.getString(R.string.recordingDate)+date
+        val format = SimpleDateFormat("MM-dd-yyyy HH:mm:ss", Locale.getDefault())
+        val date2 = date.toLong()
+
+        val date3 = date2.let { format.format(it) }
+
+        recordingDate.text = context.getString(R.string.recordingDate, date3)
     }
 
     fun setParentFolder(folderName: String) {
-        parentFolder.text = context.getString(R.string.recordingParentFolder)+folderName
+        parentFolder.text = context.getString(R.string.recordingParentFolder, folderName)
     }
     fun setAdditionalInfo(additionalInfo: String) {
-        this.additionalInfo.text = context.getString(R.string.recordingAdditionalInfo)+additionalInfo
+        this.additionalInfo.text = context.getString(R.string.recordingAdditionalInfo, additionalInfo)
     }
 }

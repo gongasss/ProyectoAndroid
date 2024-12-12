@@ -73,6 +73,8 @@ class RecorderActivity : androidx.appcompat.app.AppCompatActivity() {
 
         saveButton.setOnClickListener {
             if(currentFile != null){
+                val file = File(currentFile!!.filePath)
+                file.copyTo(File(filesDir, currentFile!!.title), true)
                 val database = AppDatabase.getInstance(this)
                 lifecycleScope.launch {
                     database.recordingDao().insert(currentFile!!)

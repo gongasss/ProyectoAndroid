@@ -6,10 +6,10 @@
     <string name="additionalInfo">Información adicional: %s</string>
     <string name="more_info">Ver detalles</string>
     <string name="recordings_beatUsed">Beat: %s</string>
-    <string name="recordingLength">"Duración: %s"</string>
+    <string name="recordingLength">"Duración: %f segundos"</string>
     <string name="recordingDate">"Fecha de grabación: %s"</string>
     <string name="recordingParentFolder">"Carpeta: %s"</string>
-    <string name="recordingAdditionalInfo">"Información adicional: "</string>
+    <string name="recordingAdditionalInfo">"Información adicional: %s"</string>
     <string name="secondsUnit">" segundos"</string>
     <string name="openRecordingActivity">Ir a grabadora</string>
     <string name="openRecordingLibraryActivity">Ir a registro de grabaciones</string>

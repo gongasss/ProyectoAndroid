@@ -9,7 +9,7 @@ data class NoteFile(
     val title: String,
     val noteContent: String,
     val date: String,
-    val isFavorite: Boolean
+    var isFavorite: Boolean
 ) {
 
 }

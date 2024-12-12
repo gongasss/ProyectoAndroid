@@ -23,6 +23,10 @@ interface NoteDao {
     @Query("DELETE FROM note_files")
     suspend fun deleteAllNotes()
 
+    @Query("UPDATE note_files SET isFavorite = :isFavorite WHERE id = :id")
+    fun updateNote(id: Int, isFavorite: Boolean)
 
+    @Query("SELECT * FROM note_files WHERE isFavorite = 1")
+    suspend fun getFavNotes(): List<NoteFile>
 
 }
