@@ -15,7 +15,9 @@
         <com.example.proyectopgl.ui.view.PlayerView
             android:id="@+id/playerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="400dp" >
+
+        </com.example.proyectopgl.ui.view.PlayerView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,14 +71,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:tint="@color/md_theme_secondaryFixed"
-        app:srcCompat="@drawable/baseline_menu_36" />
     <com.example.proyectopgl.ui.view.MenuView
         android:id="@+id/menuView"
         android:layout_width="match_parent"
@@ -88,4 +82,13 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="top" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@null"
+        android:contentDescription="@string/StartVoiceRecognition"
+        app:srcCompat="@drawable/baseline_keyboard_voice_24" />
 </FrameLayout>

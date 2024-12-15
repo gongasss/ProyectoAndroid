@@ -72,6 +72,7 @@
                 android:background="@color/md_theme_background"
                 android:hint="@string/RecordingTitle"
                 android:textAlignment="center"
+                android:textColorHint="@color/md_theme_onBackground"
                 android:textSize="20sp" />
 
         </LinearLayout>

@@ -18,7 +18,8 @@
         android:layout_height="80dp"
         android:layout_weight="1"
         android:background="@null"
-        app:srcCompat="@drawable/baseline_record_voice_over_36"
+        android:contentDescription="@string/navigateToRecorder"
+        app:srcCompat="@drawable/baseline_keyboard_voice_24"
         app:tint="#D9D9D9" />
 
     <ImageButton
@@ -27,8 +28,19 @@
         android:layout_height="80dp"
         android:layout_weight="1"
         android:background="@null"
+        android:contentDescription="@string/navigateToRecordings"
         app:srcCompat="@drawable/baseline_perm_camera_mic_36"
         app:tint="#D9D9D9" />
+
+    <ImageButton
+        android:id="@+id/startVoiceRecognitionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/md_theme_primaryFixed"
+        app:tint="@color/md_theme_onBackground"
+        app:srcCompat="@drawable/baseline_record_voice_over_36"
+        android:contentDescription="@string/startVoiceRecognition"/>
 
     <ImageButton
         android:id="@+id/openBeatLibrary"
@@ -36,6 +48,7 @@
         android:layout_height="80dp"
         android:layout_weight="1"
         android:background="@null"
+        android:contentDescription="@string/navigateToBeatsButton"
         app:srcCompat="@drawable/baseline_music_note_36"
         app:tint="#D9D9D9" />
 
@@ -45,6 +58,7 @@
         android:layout_height="80dp"
         android:layout_weight="1"
         android:background="@null"
+        android:contentDescription="@string/navigateToNotes"
         app:srcCompat="@drawable/baseline_library_music_36"
         app:tint="#D9D9D9" />
 </LinearLayout>

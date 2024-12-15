@@ -3,11 +3,12 @@ package com.example.proyectopgl.ui.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectopgl.database.model.BeatFile
+import com.example.proyectopgl.ui.BeatLibraryActivity
 import com.example.proyectopgl.ui.view.BeatItemView
 
 class BeatAdapter(
     private var items: List<BeatFile>,
-    private val listener: BeatItemView.OnBeatItemClickListener // Cambiado a la interfaz
+    private val listener: BeatLibraryActivity // Cambiado a la interfaz
 ) : RecyclerView.Adapter<BeatAdapter.BeatViewHolder>() {
 
     // ViewHolder
@@ -16,7 +17,7 @@ class BeatAdapter(
 
         fun bind(beat: BeatFile) {
             beatItemView.bind(beat) // Configurar la vista
-            beatItemView.setOnBeatItemClickListener(listener) // Establecer el listener
+             // Establecer el listener
         }
     }
 

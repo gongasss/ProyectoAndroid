@@ -11,12 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/md_theme_onPrimaryFixed"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/AppTheme">
 
-        <!-- Aquí puedes agregar otros elementos si es necesario -->
-        <!-- Texto alineado a la izquierda -->
         <TextView
             android:id="@+id/activityTitle"
             android:layout_width="wrap_content"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D1B2A"
-    android:backgroundTint="#0D1B2A"
+    android:backgroundTint="@color/md_theme_onPrimaryFixed"
     tools:context=".ui.LoginActivity">
 
     <EditText
@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="340dp"
-        android:backgroundTint="#0D1B2A"
+        android:backgroundTint="@color/md_theme_background"
+        android:contentDescription="@string/description_usernameField"
         android:ems="10"
         android:hint="Nombre de usuario"
         android:inputType="text"
@@ -31,7 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="56dp"
-        android:backgroundTint="#0D1B2A"
+        android:backgroundTint="@color/md_theme_background"
+        android:contentDescription="@string/description_passwordField"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -47,8 +49,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="96dp"
-        android:backgroundTint="#415A77"
+        android:backgroundTint="@color/md_theme_onPrimaryFixedVariant"
+        android:contentDescription="@string/createNewAccountButton"
         android:text="Crear cuenta"
+        android:textColor="@color/md_theme_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPwd"
         app:rippleColor="#F00909" />
@@ -59,8 +63,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="92dp"
-        android:backgroundTint="#415A77"
+        android:backgroundTint="@color/md_theme_onSecondaryFixedVariant"
+        android:contentDescription="@string/description_signInButton"
         android:text="Acceder"
+        android:textColor="@color/md_theme_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPwd"
         app:rippleColor="#F00909" />
@@ -71,6 +77,7 @@
         android:layout_height="63dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="88dp"
+        android:contentDescription="@string/description_LyraLogo"
         android:fontFamily="@font/bebas_neue"
         android:text="L Y R A"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -78,5 +85,31 @@
         android:textSize="60sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/login_voiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="684dp"
+        android:backgroundTint="@color/md_theme_onPrimaryFixedVariant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_keyboard_voice_24"
+        app:tint="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/login_voiceLabel"
+        android:textAlignment="center"
+        android:textColor="@color/md_theme_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_voiceButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
